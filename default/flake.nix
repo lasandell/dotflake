@@ -14,17 +14,19 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         packages.default = pkgs.buildDotnetModule rec {
-          pname = "Console";
-          version = "0.1";
+          pname = "unnamed";
+          version = "1.0";
           src = ./.;
           
-          projectFile = "${pname}.csproj";
+          projectFile = null;
           executables = [ pname ];
           buildInputs = [];
           runtimeDeps = [];
 
           dotnet-sdk = pkgs.dotnetCorePackages.sdk_8_0;
           dotnet-runtime = dotnet-sdk.runtime;
+
+          dotnetFlags = [ "-p:AssemblyName=${pname}" ];
 
           nugetDeps = nuget-packageslock2nix.lib {
             inherit system;
