@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Make sure packages.lock.json is used with any csproj -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+</Project>
